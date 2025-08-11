@@ -1,0 +1,250 @@
+/* Estilos generales para el cuerpo de la página */
+        body {
+            font-family: 'Merriweather', serif; /* Fuente con estilo de libro */
+            background-color: #f8f8f8; /* Color de fondo suave */
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh; /* Asegura que ocupe toda la altura de la vista */
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Contenedor principal del libro */
+        .book-container {
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 800px; /* Ancho máximo para el libro */
+            padding: 30px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 550px; /* Altura mínima para una buena presentación */
+            position: relative; /* Para posicionar elementos internos */
+        }
+
+        /* Estilos para cada página del cuento */
+        .story-page {
+            width: 100%;
+            min-height: 400px; /* Altura mínima para el contenido de la página */
+            padding: 20px;
+            text-align: justify; /* Justificar el texto para un aspecto de libro */
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            opacity: 0; /* Por defecto oculto */
+            visibility: hidden; /* Por defecto oculto */
+            position: absolute; /* Para superponer las páginas y mostrar solo una */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* Centrar la página */
+            transition: opacity 0.6s ease-in-out, visibility 0.6s ease-in-out;
+            display: flex; /* Usar flexbox para centrar contenido verticalmente */
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .story-page.active {
+            opacity: 1; /* Mostrar la página activa */
+            visibility: visible;
+            position: static; /* Volver a estático para que ocupe espacio y los botones se coloquen bien */
+            transform: none; /* Resetear transformación */
+        }
+
+        /* Estilos para el título del cuento */
+        .story-page h1 {
+            font-family: 'Playfair Display', serif; /* Fuente elegante para títulos */
+            font-size: 2.8em;
+            color: #5d3f2a; /* Tono marrón oscuro */
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        /* Estilos para subtítulos o nombres de autor */
+        .story-page h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8em;
+            color: #7b5d49;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        /* Estilos para párrafos de cuento */
+        .story-page p {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            color: #444;
+        }
+
+        /* Contenedor de botones de navegación */
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            padding-top: 20px;
+            gap: 20px; /* Espacio entre botones */
+        }
+
+        /* Estilos para los botones */
+        .nav-button {
+            background-color: #a0522d; /* Color marrón rojizo */
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px; /* Bordes redondeados */
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            flex-grow: 1; /* Para que ocupen el espacio */
+            max-width: 200px; /* Ancho máximo para los botones */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .nav-button:hover {
+            background-color: #8b4513; /* Tono más oscuro al pasar el ratón */
+            transform: translateY(-2px); /* Efecto de "levantar" */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+            transform: translateY(0);
+            box-shadow: none;
+        }
+
+        /* Media queries para responsividad */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            .book-container {
+                padding: 20px;
+                min-height: 450px;
+            }
+            .story-page {
+                font-size: 1em;
+                min-height: 300px;
+            }
+            .story-page h1 {
+                font-size: 2em;
+            }
+            .story-page h2 {
+                font-size: 1.5em;
+            }
+            .nav-button {
+                padding: 10px 15px;
+                font-size: 1em;
+            }
+            .navigation-buttons {
+                flex-direction: column; /* Apilar botones en pantallas muy pequeñas */
+                gap: 10px;
+            }
+        }
+        body {
+            font-family: 'Merriweather', serif;
+            background-color: #f0f2f5; /* Fondo más suave */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .cover-card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            max-width: 600px;
+            width: 95%;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .cover-image-container {
+            width: 100%;
+            height: 0;
+            padding-bottom: 75%; /* Proporción 4:3 */
+            position: relative;
+            background-color: #e0e0e0; /* Color mientras carga */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 1.1em;
+            overflow: hidden; /* Asegura que la imagen no sobresalga */
+        }
+        .cover-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px 12px 0 0; /* Bordes redondeados en la parte superior */
+        }
+        .cover-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            color: #5d3f2a;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            text-align: center;
+            padding: 0 20px;
+        }
+        .cover-author {
+            font-family: 'Merriweather', serif;
+            font-size: 1.1em;
+            color: #7b5d49;
+            margin-bottom: 25px;
+            text-align: center;
+            padding: 0 20px;
+        }
+        .start-button {
+            background-color: #a0522d; /* Marrón rojizo */
+            color: white;
+            border: none;
+            padding: 15px 35px;
+            border-radius: 30px; /* Botón redondeado */
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            margin-bottom: 30px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+        .start-button:hover {
+            background-color: #8b4513;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        .loading-text {
+            position: absolute;
+            z-index: 10;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 15px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .cover-title {
+                font-size: 1.8em;
+                margin-top: 20px;
+            }
+            .cover-author {
+                font-size: 0.9em;
+                margin-bottom: 20px;
+            }
+            .start-button {
+                padding: 12px 25px;
+                font-size: 1em;
+            }
+        }
