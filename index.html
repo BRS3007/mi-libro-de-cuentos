@@ -1,46 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portada - Mi Libro de Cuentos</title>
+    <!-- Tailwind CSS para un estilo rápido y limpio -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Merriweather', serif;
+            background-color: #f0f2f5; /* Fondo más suave */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .cover-card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            max-width: 600px;
+            width: 95%;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .cover-image-container {
+            width: 100%;
+            height: 0;
+            padding-bottom: 75%; /* Proporción 4:3 */
+            position: relative;
+            background-color: #e0e0e0; /* Color mientras carga */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 1.1em;
+            overflow: hidden; /* Asegura que la imagen no sobresalga */
+        }
+        .cover-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px 12px 0 0; /* Bordes redondeados en la parte superior */
+        }
+        .cover-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            color: #5d3f2a;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            text-align: center;
+            padding: 0 20px;
+        }
+        .cover-author {
+            font-family: 'Merriweather', serif;
+            font-size: 1.1em;
+            color: #7b5d49;
+            margin-bottom: 25px;
+            text-align: center;
+            padding: 0 20px;
+        }
+        .start-button {
+            background-color: #a0522d; /* Marrón rojizo */
+            color: white;
+            border: none;
+            padding: 15px 35px;
+            border-radius: 30px; /* Botón redondeado */
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            margin-bottom: 30px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+        .start-button:hover {
+            background-color: #8b4513;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .cover-title {
+                font-size: 1.8em;
+                margin-top: 20px;
+            }
+            .cover-author {
+                font-size: 0.9em;
+                margin-bottom: 20px;
+            }
+            .start-button {
+                padding: 12px 25px;
+                font-size: 1em;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="book-container">
-        <!-- Las páginas del cuento se insertarán aquí por JavaScript -->
-        <div id="story-pages-container">
-            <!-- Página 1: Título e introducción -->
-            <div class="story-page" id="page-1">
-                <h1>El Viaje de la Pequeña Gota</h1>
-                <h2>Un cuento sobre el ciclo del agua</h2>
-                <p>En el vasto océano azul, vivía una diminuta gota de agua llamada Gota. Gota era curiosa y soñaba con explorar el mundo más allá de su hogar salado.</p>
-                <p>Un día, el sol brillante calentó la superficie del océano, y Gota sintió una extraña ligereza. Se estaba convirtiendo en vapor, ascendiendo hacia el cielo...</p>
-            </div>
-            <!-- Página 2: En las nubes -->
-            <div class="story-page" id="page-2">
-                <p>Arriba, se unió a millones de otras gotas de vapor, formando una nube grande y esponjosa. Desde allí, Gota podía ver montañas, ciudades y ríos. ¡Era un mundo enorme!</p>
-                <p>Pronto, la nube se hizo densa y pesada. Gota y sus amigas sintieron frío y comenzaron a agruparse, volviéndose más y más grandes.</p>
-            </div>
-            <!-- Página 3: La Lluvia -->
-            <div class="story-page" id="page-3">
-                <p>De repente, una ráfaga de viento empujó la nube sobre la tierra. Las gotas no pudieron aguantar más y cayeron, ¡era la lluvia! Gota bailó en el aire, feliz de su nueva aventura.</p>
-                <p>Aterrizó suavemente en una hoja de árbol, deslizándose por ella hasta llegar al suelo húmedo del bosque.</p>
-            </div>
-            <!-- Página 4: El Río -->
-            <div class="story-page" id="page-4">
-                <p>En el suelo, Gota se unió a muchas otras gotas y juntas formaron un pequeño arroyo. El arroyo se convirtió en un riachuelo, y el riachuelo fluyó hacia un río majestuoso.</p>
-                <p>El río llevó a Gota a través de valles verdes, pasando por puentes y casas, hasta que finalmente, después de un largo viaje, la devolvió a un lugar familiar.</p>
-            </div>
-            <!-- Página 5: De vuelta al Océano -->
-            <div class="story-page" id="page-5">
-                <p>Con un suave chapoteo, Gota regresó al vasto y familiar océano. Había completado el ciclo, desde el océano hasta el cielo, y de vuelta a casa.</p>
-                <p>Ahora, cada vez que el sol calentaba el agua, Gota recordaba sus increíbles aventuras y sabía que su viaje nunca terminaba realmente.</p>
-                <h2>Fin.</h2>
-            </div>
+    <div class="cover-card">
+        <div class="cover-image-container">
+            <img id="generatedImage" 
+                 src="imagenes/IMG-2.jpg" 
+                 alt="Portada de Mi Libro de Cuentos" 
+                 class="cover-image">
         </div>
-
-        <!-- Botones de navegación -->
-        <div class="navigation-buttons">
-            <button id="prev-page" class="nav-button">Página Anterior</button>
-            <button id="next-page" class="nav-button">Siguiente Página</button>
-        </div>
-    </div>
+        <h1 class="cover-title">El Viaje de la Pequeña Gota</h1>
+        <p class="cover-author">Por [Tu Nombre de Autor]</p>
+        <button id="startButton" class="start-button">Comenzar el Cuento</button>
     </div>
 
-    <script src="js/script.js"></script>
+    <script>
+        // Event listener para el botón "Comenzar el Cuento"
+        document.getElementById('startButton').addEventListener('click', () => {
+            // ¡CLAVE! Redirige a 'cuento.html' (el nuevo nombre)
+            window.location.href = 'cuento.html'; 
+        });
+    </script>
 </body>
 </html>
+
